@@ -9,6 +9,10 @@ export default class Test extends Service {
    * @param name - your name
    */
   public async sayHi(name: string) {
-    return `hi, ${ name }！`;
+    const { User } = this.app.model;
+    await User.create({ name });
+    const user = await User.findAll({});
+    console.log(user);
+    return { user };
   }
 }

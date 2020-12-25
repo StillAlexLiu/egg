@@ -9,6 +9,31 @@ export default (appInfo: EggAppInfo) => {
 
   // add your egg config in here
   config.middleware = [];
+  config.mysql = {
+    client: {
+      host: 'localhost',
+      port: '3306',
+      user: 'root',
+      password: 'P@ssw0rd',
+      database: 'test',
+    },
+  };
+  config.sequelize = {
+    dialect: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    password: 'P@ssw0rd',
+    database: 'test',
+    // define: {
+    //   // 使用自定义的表名
+    //   freezeTableName: true,
+    //   // 自动生成时间戳 -小驼峰式
+    //   timestamps: true,
+    //   // 表名小驼峰
+    //   underscored: false,
+    // },
+  };
+
 
   // add your special config in here
   const bizConfig = {
@@ -21,3 +46,4 @@ export default (appInfo: EggAppInfo) => {
     ...bizConfig,
   };
 };
+
